@@ -1,0 +1,224 @@
+# Clases 
+
+'''
+
+class Persona:
+    # Constructor
+    def __init__(self, nombre, edad): # siempre hay que poner __init__ y en los parametros se pone primero self para el constructor
+        self.nombre = nombre
+        self.edad = edad
+
+    # Metodo para imprimir informacion de la persona
+    def imprimir_informacion(self):
+        print(f"Nombre: {self.nombre}, Edad: {self.edad}")
+
+    # Metodo para verificar si la persona es mayor de edad
+    def es_mayor_de_edad(self):
+        return self.edad >= 18
+
+# Crear instancias de la clase Persona
+persona1 = Persona("Juan", 25)
+persona2 = Persona("Maria", 17)
+
+# Llamar a metodos de la clase
+persona1.imprimir_informacion()
+print(f"{persona1.nombre} es mayor de edad: {persona1.es_mayor_de_edad()}")
+
+persona2.imprimir_informacion()
+print(f"{persona2.nombre} es mayor de edad: {persona2.es_mayor_de_edad()}")
+
+'''
+
+# Ejercicio propuesto
+
+'''
+
+Desarrollar una clase llamada vehiculo, que tenga:
+
+- Tres atributos: marca, modelo y matricula
+- 1 Metodo "identificar" que muestre los 3 elementos
+
+Desarrollar una clase Coche que herede de vehiculo que tenga:
+- 1 atributo color
+- 1 metodo "abrir_puertas" que muestre un mensaje indicando que las puertas estan abiertas
+
+'''
+
+'''
+
+class Vehiculo:
+    def __init__ (self, marca, modelo, matricula):
+        self.marca = marca
+        self.modelo = modelo
+        self.matricula = matricula
+
+    def identificar(self):
+        print(f"Marca: {self.marca}, modelo: {self.modelo}, matricula: {self.matricula}")
+
+class Coche(Vehiculo):
+    def __init__(self, marca, modelo, matricula, color):
+        super().__init__(marca, modelo, matricula)
+        self.color = color
+    
+    def abrir_puertas(self):
+        print(f"Las puertas del {self.marca}, color {self.color} estan abiertas")
+
+vehiculo = Vehiculo("Toyota", "Corolla", "1234A")
+coche = Coche("Honda", "Accord", "4321A", "Negro")
+
+vehiculo.identificar()
+
+print(coche.marca, coche.modelo, coche.matricula, coche.color)
+coche.abrir_puertas()
+
+'''
+
+'''
+class Animal:
+    def __init__ (self, nombre):
+        self.nombre = nombre
+
+    def saludar(self):
+        print(f"Soy un animal llamado {self.nombre}.")
+
+class Perro(Animal):
+    def __init__(self, nombre, raza):
+    # Llama al __init__ de la calse base usando super()
+        super().__init__(nombre)
+        self.raza = raza
+
+    def ladrar(self): 
+        print("guau")
+
+# Crear una instancia de la clase Perro
+perro1 = Perro("Vito", "Dalmata")
+
+# Acceder a los atributos de la instancia
+print(perro1.nombre) # imprime "Vito"
+print(perro1.raza) # imprime "Dalmata"
+
+# Llamar a los metos de la instancia
+perro1.saludar() # imprime "Soy un animal llamado Vito."
+perro1.ladrar() # imprime guau
+
+'''
+
+
+# datasets gratuitos para hacer pruebas y practicar; esto servira para el proyecto final si queremos enfocarnos en Data Science https://www.kaggle.com/
+
+'''
+
+Ficheros
+
+open(ruta y nombre de fichero, modo de apretura)
+    Modo de apertura:
+    -"r" -> read, modo lectura
+    -"w" - > write, modo escritura
+    -"a" - > append. agregar texto al final
+    -"+" - > modo lectura y escritura
+
+    los objetos de tipo file disponen de los metods read, write, o close
+'''
+
+'''
+Ejemplo
+
+# leer
+
+f = open("/ruta/hasta/archivo/pruebas_texto.txt", "r")
+contenido = f.read()
+print(contenido)
+f.close()
+
+# escribir/sobreescribir
+f= open("pruebas_texto.txt","w")
+f.write("el contenido del fichero ha cambiado")
+f.close()
+
+
+# Añadir elemento al archivo
+f = open("pruebas_texto.txt","a")
+f.write("Ahora añade en vez de sustituir")
+f.close()
+'''
+
+# Ejemplos manipulando archivos
+'''f = open("C:/Users/emmac/Downloads/Master/Lenguaje de Programacion/countries.csv", "r")
+contenido = f.read()
+print(contenido)
+f.close()'''
+
+'''f = open("C:/Users/emmac/Downloads/Master/Lenguaje de Programacion/countries.csv", "w")
+f.write("Emmanuel Collado estuvo aqui")
+f.close()'''
+
+'''f = open("C:/Users/emmac/Downloads/Master/Lenguaje de Programacion/countries.csv", "a")
+f.write("Emmanuel Collado estuvo aqui")
+f.close()'''
+
+
+
+'''class Vehiculo:
+    def __init__ (self, marca, modelo, matricula):
+        self.marca = marca
+        self.modelo = modelo
+        self.matricula = matricula
+
+    def identificar(self):
+        print(f"Marca: {self.marca}, modelo: {self.modelo}, matricula: {self.matricula}")
+
+class Coche(Vehiculo):
+    def __init__(self, marca, modelo, matricula, color):
+        super().__init__(marca, modelo, matricula)
+        self.color = color
+    
+    def abrir_puertas(self):
+        print(f"Las puertas del {self.marca}, color {self.color} estan abiertas")
+
+vehiculo = Vehiculo("Toyota", "Corolla", "1234A")
+coche = Coche("Honda", "Accord", "4321A", "Negro")
+
+vehiculo.identificar()
+
+print(coche.marca, coche.modelo, coche.matricula, coche.color)
+coche.abrir_puertas()'''
+
+
+# Tarea: realizar una clase con herencia
+class Supermercado:
+    def __init__(self, alimentos, bebidas):
+        self.alimentos = alimentos
+        self.bebidas = bebidas
+    
+    def revisar_supermercado(self):
+        print(f"En el supermercado hay {self.alimentos}, {self.bebidas}")
+
+class Nevera(Supermercado):
+    def __init__(self, alimentos, bebidas):
+        super().__init__(alimentos, bebidas)
+
+    def revisar_nevera(self):
+        print(f"En mi nevera hay {self.alimentos}, {self.bebidas}")
+
+    def las_compras(self, lista_supermercado, lista_nevera, tipo):
+        que_me_falta = set(lista_supermercado) - set(lista_nevera)
+
+        if que_me_falta:
+            print(f"{tipo} a comprar: {que_me_falta}")
+        else:
+            print(f"No hay {tipo} para comprar")
+
+comida = ["huevos", "espinacas", "cebollas", "tomates", "queso"]
+liquido = ["jugo", "cerveza", "agua", "leche", "vino"]
+
+c_en_nevera = ["huevos", "tomate", "queso"]
+l_en_nevera = ["jugo", "leche"]
+
+sm = Supermercado(comida, liquido)
+nev = Nevera(c_en_nevera, l_en_nevera)
+
+sm.revisar_supermercado()
+nev.revisar_nevera()
+
+nev.las_compras(comida, c_en_nevera, "Alimentos")
+nev.las_compras(liquido, l_en_nevera, "Bebidas")
